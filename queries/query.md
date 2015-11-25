@@ -80,17 +80,33 @@ User.find()
 `populate` is used with associations to include any related values specified in a model definition.
 If a `collection` attribute is defined in a many-to-many, one-to-many or many-to-many-through
 association the `populate` option also accepts a full criteria object. This allows you
-to filter associations and run `limit` and `skip` on the results.
+to filter associations and run `limit` and `skip` on the results. Attribute Name can be a string with the name of the association, or a string array of association names.
+> string array of association names is available since version v.0.10.29
 
 |     Description     | Accepted Data Types | Required ? |
 |---------------------|---------------------|------------|
-|  Attribute Name     |      `string`       | Yes        |
+|  Attribute Name     |      `string|array of stings`       | Yes        |
 |  Criteria Object    |      `{}`           | No         |
 
 ```javascript
 // Simple Population
 User.find()
 .populate('foo')
+.exec(function(err, users) {});
+```
+
+```javascript
+// Populating more than one relation
+User.find()
+.populate('foo')
+.populate('bar')
+.exec(function(err, users) {});
+```
+
+```javascript
+// Populating more than one relation (alternative syntax)
+User.find()
+.populate(['foo', 'bar'])
 .exec(function(err, users) {});
 ```
 
