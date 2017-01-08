@@ -85,7 +85,7 @@ to filter associations and run `limit` and `skip` on the results. Attribute Name
 
 |     Description     | Accepted Data Types | Required ? |
 |---------------------|---------------------|------------|
-|  Attribute Name     |      `string|array of stings`       | Yes        |
+|  Attribute Name     |      `string|array of strings`       | Yes        |
 |  Criteria Object    |      `{}`           | No         |
 
 ```javascript
